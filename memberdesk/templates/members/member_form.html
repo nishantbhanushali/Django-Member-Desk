@@ -1,0 +1,17 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load ifsetting_tag %}
+
+{% block head_title %}{% trans "Members" %}{% endblock %}
+
+{% block body %}
+    <h1>{% trans "Members" %}</h1>
+    
+<form action="/members/" method="post">{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" value="Submit" />
+</form>
+
+
+{% endblock %}
