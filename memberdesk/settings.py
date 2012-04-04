@@ -164,6 +164,7 @@ INSTALLED_APPS = [
     
     # project
     "about",
+    "dashboard"
 ]
 
 FIXTURE_DIRS = [
