@@ -18,6 +18,14 @@ section {
 .modal form {
   margin-bottom: 0px;
 }
+.topbar h3 a, .topbar .brand {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.topbar-inner, .topbar .fill {
+  background-image: url(/site_media/static/img/bg.header.png);
+}
+
 /*
 section > .row {
   margin-bottom: 10px;
