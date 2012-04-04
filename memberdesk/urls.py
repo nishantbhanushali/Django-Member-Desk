@@ -18,6 +18,7 @@ urlpatterns = patterns("",
     url(r"^admin/invite_user/$", "pinax.apps.signup_codes.views.admin_invite_user", name="admin_invite_user"),
     url(r"^admin/", include(admin.site.urls)),
     url(r"^dashboard/", include("dashboard.urls")),
+    url(r"^members/", include("members.urls")),
     url(r"^about/", include("about.urls")),
     url(r"^account/", include("pinax.apps.account.urls")),
 )
