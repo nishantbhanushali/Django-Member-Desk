@@ -27,26 +27,15 @@
 {% block head_title %}{% trans "Members" %}{% endblock %}
 
 {% block body %}
+<!--<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}django_tables2/themes/paleblue/css/screen.css" />-->
     <h1>{% trans "Members" %}</h1>
     
-    {% load render_table from django_tables2 %}
-{% render_table table %}
+<a class="btn" href="/members/create">New Member</a>
     
 {% if member_list %}
-    <table class="table table-striped">
-    <thead>
-    	<tr>
-    		<th>ID #</th>
-    		<th>Name</th>
-    		<th>Email</th>
-    		<th>Level</th>
-    		<th>Signed Up</th>
-	    </tr>
-    </thead>
-    {% for member in member_list %}
-        <li><a href="/members/{{ member.id }}/">{{ member.first_name }}</a></li>
-    {% endfor %}
-    </table>
+
+    {% load render_table from django_tables2 %}
+	{% render_table table %}
 {% else %}
     <p>This site has no members.</p>
 {% endif %}
