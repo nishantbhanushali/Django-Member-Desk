@@ -157,7 +157,8 @@ INSTALLED_APPS = [
     "timezones",
     "emailconfirmation",
     "metron",
-    
+	"django_tables2",
+	    
     # Pinax
     "pinax.apps.account",
     "pinax.apps.signup_codes",
@@ -165,7 +166,7 @@ INSTALLED_APPS = [
     # project
     "about",
     "dashboard",
-    "members"
+    "members",
 ]
 
 FIXTURE_DIRS = [

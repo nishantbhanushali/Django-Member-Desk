@@ -3,17 +3,50 @@
 {% load i18n %}
 {% load ifsetting_tag %}
 
+{% block nav %}
+<ul class="nav">
+    <li id="tab_first">
+        <a href="#">First Link</a>
+    </li>
+    <li id="tab_second">
+        <a href="#">Second Link</a>
+    </li>
+    <li id="tab_third" class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Some Dropdown Menu
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Some Link</a></li>
+            <li><a href="#">Another Link</a></li>
+        </ul>
+    </li>
+</ul>
+{% endblock %}
+
 {% block head_title %}{% trans "Members" %}{% endblock %}
 
 {% block body %}
     <h1>{% trans "Members" %}</h1>
     
+    {% load render_table from django_tables2 %}
+{% render_table table %}
+    
 {% if member_list %}
-    <ul>
+    <table class="table table-striped">
+    <thead>
+    	<tr>
+    		<th>ID #</th>
+    		<th>Name</th>
+    		<th>Email</th>
+    		<th>Level</th>
+    		<th>Signed Up</th>
+	    </tr>
+    </thead>
     {% for member in member_list %}
         <li><a href="/members/{{ member.id }}/">{{ member.first_name }}</a></li>
     {% endfor %}
-    </ul>
+    </table>
 {% else %}
     <p>This site has no members.</p>
 {% endif %}
