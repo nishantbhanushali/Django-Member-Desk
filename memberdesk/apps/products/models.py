@@ -26,6 +26,17 @@ class Product(models.Model):
 
     created = models.DateTimeField()
     modified = models.DateTimeField()
+    
+class Email(models.Model):
+    product = model.ForeignKey(Product)
+    name = models.CharField(max_length=128)
+    subject = models.CharField(max_length=128)
+    body = models.TextField()
+    type = models.CharField(max_length=128)
+    active = models.BooleanField()
+
+    created = models.DateTimeField()
+    modified = models.DateTimeField()    
         
 class MemberTable(tables.Table):
     edit = tables.TemplateColumn('<a class="btn" href="/members/1">Edit</a>')
