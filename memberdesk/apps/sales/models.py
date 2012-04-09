@@ -7,8 +7,8 @@ from members.models import Member
 
 class Sale(models.Model):
 	product = models.ForeignKey(Product)
-	member = models.ForeignKey(Member)
-	affiliate = models.ForeignKey(Member)
+	member = models.ForeignKey(Member, related_name='sale_member')
+	affiliate = models.ForeignKey(Member, related_name='sale_affiliate')
 	transaction = models.CharField(max_length=128)
 	subscription = models.CharField(max_length=128)
 	transaction_type = models.CharField(max_length=128)
