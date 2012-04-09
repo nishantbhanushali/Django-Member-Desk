@@ -165,9 +165,13 @@ INSTALLED_APPS = [
     
     # project
     "about",
+    "blog",
     "dashboard",
     "members",
-    "settings",
+    "pages",
+    "products",
+    "sales",
+    "site",
 ]
 
 FIXTURE_DIRS = [

@@ -3,19 +3,6 @@ import django_tables2 as tables
 from django_tables2 import SingleTableView
 from django_tables2.utils import A
 
-class BlogPost(models.Model):
-    blog = models.ForeignKey(Blog)
-    name = models.CharField(max_length=128)
-    location = models.CharField(max_length=128)
-    type = models.CharField(max_length=128)
-    html = models.TextField()
-    level = models.ForeignKey(Level)
-    layout = models.ForeignKey(Layout)
-    days_required = models.IntegerField()
-    date_required = models.DateTimeField()
-    created = models.DateTimeField()
-    modified = models.DateTimeField()
-    
 class Blog(models.Model):
     name = models.CharField(max_length=128)
     title = models.CharField(max_length=128)
@@ -32,6 +19,19 @@ class Blog(models.Model):
     created = models.DateTimeField()
     modified = models.DateTimeField()
 
+class BlogPost(models.Model):
+    blog = models.ForeignKey(Blog)
+    name = models.CharField(max_length=128)
+    location = models.CharField(max_length=128)
+    type = models.CharField(max_length=128)
+    html = models.TextField()
+    level = models.ForeignKey(Level)
+    layout = models.ForeignKey(Layout)
+    days_required = models.IntegerField()
+    date_required = models.DateTimeField()
+    created = models.DateTimeField()
+    modified = models.DateTimeField()
+    
 class Comment(models.Model):
     blog = models.ForeignKey(Blog)
     post = models.ForeignKey(BlogPost)

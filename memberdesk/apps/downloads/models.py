@@ -14,8 +14,8 @@ class Download(models.Model):
     created = models.DateTimeField()
     modified = models.DateTimeField()    
     
-class MemberTable(tables.Table):
-    edit = tables.TemplateColumn('<a class="btn" href="/members/1">Edit</a>')
+class DownloadTable(tables.Table):
+    edit = tables.TemplateColumn('<a class="btn" href="/downloads/1">Edit</a>')
     class Meta:
-        model = Member
+        model = Download
         attrs = {'class': 'table table-striped'}
