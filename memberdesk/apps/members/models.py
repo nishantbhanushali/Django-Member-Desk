@@ -3,15 +3,25 @@ import django_tables2 as tables
 from django_tables2 import SingleTableView
 from django_tables2.utils import A
 
-class Member(models.Model):
-    username = models.CharField(max_length=30)
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
-    email = models.EmailField()
-    password = models.CharField(max_length=128)
+class Page(models.Model):
+    name = models.CharField(max_length=128)
+    title = models.CharField(max_length=128)
+    location = models.CharField(max_length=128)
+    type = models.CharField(max_length=128)
+    html = models.TextField()
+    affiliate_visible = models.BooleanField()
+    members_only = models.BooleanField()
+    no_delete = models.BooleanField()
+    level = models.ForeignKey(Level)
+    layout = models.ForeignKey(Layout)
+    order = models.IntegerField()
+    days_required = models.IntegerField()
+    date_required = models.DateTimeField()
+    created = models.DateTimeField()
+    modified = models.DateTimeField()
     
-class MemberTable(tables.Table):
-    edit = tables.TemplateColumn('<a class="btn" href="/members/1">Edit</a>')
+class PageTable(tables.Table):
+    edit = tables.TemplateColumn('<a class="btn" href="/page/1">Edit</a>')
     class Meta:
-        model = Member
+        model = Page
         attrs = {'class': 'table table-striped'}
