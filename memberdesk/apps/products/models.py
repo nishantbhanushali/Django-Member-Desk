@@ -37,6 +37,15 @@ class Email(models.Model):
 
     created = models.DateTimeField()
     modified = models.DateTimeField()    
+
+class AffiliateTool(models.Model):
+    name = models.CharField(max_length=128)
+    html = models.TextField()
+    type = models.CharField(max_length=128)
+    active = models.BooleanField()
+
+    created = models.DateTimeField()
+    modified = models.DateTimeField()    
         
 class MemberTable(tables.Table):
     edit = tables.TemplateColumn('<a class="btn" href="/members/1">Edit</a>')
