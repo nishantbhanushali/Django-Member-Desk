@@ -165,7 +165,7 @@ INSTALLED_APPS = [
     
     # project
     "about",
-    "blog",
+    "blogs",
     "dashboard",
     "members",
     "pages",
