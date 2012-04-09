@@ -33,7 +33,14 @@ class Blog(models.Model):
     modified = models.DateTimeField()
 
 class Comment(models.Model):
-    Blo
+    blog = models.ForeignKey(Blog)
+    post = models.ForeignKey(BlogPost)
+    content = models.TextField()
+    author_name = models.CharField(max_length=128)
+    author_email = models.EmailField()
+    author = models.ForeignKey(Member)
+    created = models.DateTimeField()
+    modified = models.DateTimeField()
     
 class BlogTable(tables.Table):
     edit = tables.TemplateColumn('<a class="btn" href="/page/1">Edit</a>')

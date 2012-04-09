@@ -11,7 +11,7 @@ class Sale(models.Model):
 	subscription = models.CharField(max_length=128)
 	transaction_type = models.CharField(max_length=128)
 	customer_name = models.CharField(max_length=128)
-	customer_email = models.CharField(max_length=128)
+	customer_email = models.EmailField()
 	amount = models.CharField(max_length=128)
 	#timestamp = models.CharField(max_length=128)
 	
