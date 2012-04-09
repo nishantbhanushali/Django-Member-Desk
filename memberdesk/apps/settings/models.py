@@ -12,3 +12,6 @@ class URL(models.Model):
     domain = models.CharField(max_length=255)
     subdomain = models.CharField(max_length=255)
     
+class Level(models.Model):
+    name = models.CharField(max_length=128)
+    number = models.IntegerField()
