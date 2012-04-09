@@ -24,6 +24,8 @@ class Layout(models.Model):
     name = models.CharField(max_length=128)
     html = models.TextField()
     type = models.CharField(max_length=128)
+    created = models.DateTimeField()
+    modified = models.DateTimeField()
     
 class PageTable(tables.Table):
     edit = tables.TemplateColumn('<a class="btn" href="/page/1">Edit</a>')
