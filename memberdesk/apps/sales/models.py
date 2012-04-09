@@ -2,6 +2,7 @@ from django.db import models
 import django_tables2 as tables
 from django_tables2 import SingleTableView
 from django_tables2.utils import A
+from products import Product
 
 class Sale(models.Model):
 	product = models.ForeignKey(Product)
@@ -15,7 +16,7 @@ class Sale(models.Model):
 	amount = models.CharField(max_length=128)
 	#timestamp = models.CharField(max_length=128)
 	
-class AffiliateSale(models.Model)
+class AffiliateSale(models.Model):
 	product = models.ForeignKey(Product)
 	affiliate = models.ForeignKey(Member)
 	sales_referred = models.IntegerField()

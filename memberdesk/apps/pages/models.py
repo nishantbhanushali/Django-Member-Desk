@@ -2,6 +2,7 @@ from django.db import models
 import django_tables2 as tables
 from django_tables2 import SingleTableView
 from django_tables2.utils import A
+from site import Level
 
 class Page(models.Model):
     name = models.CharField(max_length=128)

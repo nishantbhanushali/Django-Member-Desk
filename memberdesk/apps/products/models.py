@@ -2,6 +2,7 @@ from django.db import models
 import django_tables2 as tables
 from django_tables2 import SingleTableView
 from django_tables2.utils import A
+from site import Level
 
 class Product(models.Model):
     name = models.CharField(max_length=128)
@@ -13,7 +14,7 @@ class Product(models.Model):
     payment_type = models.CharField(max_length=128)
     time_num = models.IntegerField()
     time_type = models.CharField(max_length=128)
-    upgrades_to_level = model.ForeignKey(Level)
+    upgrades_to_level = models.ForeignKey(Level)
     thank_you_page = model.ForeignKey(Page)
 
     trial1_price = models.CharField(max_length=128)

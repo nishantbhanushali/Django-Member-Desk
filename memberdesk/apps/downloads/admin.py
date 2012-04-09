@@ -1,4 +1,4 @@
-from members.models import Member
+from members.models import Download
 from django.contrib import admin
 
-admin.site.register(Member)
+admin.site.register(Download)

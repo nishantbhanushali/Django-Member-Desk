@@ -1,4 +1,4 @@
-from members.models import Page
+from blog.models import Blog
 from django.contrib import admin
 
-admin.site.register(Page)
+admin.site.register(Blog)

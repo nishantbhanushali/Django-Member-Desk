@@ -171,7 +171,7 @@ INSTALLED_APPS = [
     "pages",
     "products",
     "sales",
-    "site",
+    "website",
 ]
 
 FIXTURE_DIRS = [
