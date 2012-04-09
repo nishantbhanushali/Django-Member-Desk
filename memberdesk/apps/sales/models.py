@@ -2,7 +2,8 @@ from django.db import models
 import django_tables2 as tables
 from django_tables2 import SingleTableView
 from django_tables2.utils import A
-from products import Product
+from products.models import Product
+from members.models import Member
 
 class Sale(models.Model):
 	product = models.ForeignKey(Product)

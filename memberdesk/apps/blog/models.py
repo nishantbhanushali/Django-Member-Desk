@@ -2,7 +2,9 @@ from django.db import models
 import django_tables2 as tables
 from django_tables2 import SingleTableView
 from django_tables2.utils import A
-from site import Level
+from website.models import Level
+from pages.models import Layout
+from members.models import Member
 
 class Blog(models.Model):
     name = models.CharField(max_length=128)

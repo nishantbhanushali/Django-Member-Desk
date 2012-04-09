@@ -6,7 +6,7 @@ class Website(models.Model):
     support_email = models.CharField(max_length=128)
     support_link = models.CharField(max_length=128)
     jv_password = models.CharField(max_length=128)
-    
+
 class URL(models.Model):
     website = models.ForeignKey('Website')
     domain = models.CharField(max_length=255)

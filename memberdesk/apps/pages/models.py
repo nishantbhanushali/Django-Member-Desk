@@ -2,7 +2,7 @@ from django.db import models
 import django_tables2 as tables
 from django_tables2 import SingleTableView
 from django_tables2.utils import A
-from site import Level
+from website.models import Level
 
 class Page(models.Model):
     name = models.CharField(max_length=128)
@@ -14,8 +14,8 @@ class Page(models.Model):
     members_only = models.BooleanField()
     no_delete = models.BooleanField()
     show_in_navigation = models.BooleanField()
-    level = models.ForeignKey(Level)
-    layout = models.ForeignKey(Layout)
+    #level = models.ForeignKey(Level)
+    #layout = models.ForeignKey(Layout)
     order = models.IntegerField()
     days_required = models.IntegerField()
     date_required = models.DateTimeField()
