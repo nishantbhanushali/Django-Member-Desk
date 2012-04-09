@@ -1,4 +1,4 @@
-from members.models import Member
+from settings.models import Site
 from django.contrib import admin
 
-admin.site.register(Member)
+admin.site.register(Site)

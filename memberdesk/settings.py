@@ -167,6 +167,7 @@ INSTALLED_APPS = [
     "about",
     "dashboard",
     "members",
+    "settings",
 ]
 
 FIXTURE_DIRS = [
