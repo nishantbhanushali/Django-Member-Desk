@@ -50,8 +50,8 @@ class AffiliateTool(models.Model):
     created = models.DateTimeField()
     modified = models.DateTimeField()    
         
-class MemberTable(tables.Table):
+class ProductTable(tables.Table):
     edit = tables.TemplateColumn('<a class="btn" href="/members/1">Edit</a>')
     class Meta:
-        model = Member
+        model = Product
         attrs = {'class': 'table table-striped'}

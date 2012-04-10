@@ -23,6 +23,9 @@ urlpatterns = patterns("",
     url(r"^blogs/", include("blogs.urls")),    
     url(r"^sales/", include("sales.urls")),
     url(r"^about/", include("about.urls")),
+    url(r"^website/", include("website.urls")),
+    url(r"^downloads/", include("downloads.urls")),
+    url(r"^products/", include("products.urls")),
     url(r"^account/", include("pinax.apps.account.urls")),
 )
 

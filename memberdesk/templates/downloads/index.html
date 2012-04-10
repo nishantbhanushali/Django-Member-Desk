@@ -1,0 +1,41 @@
+{% extends "site_base.html" %}
+
+{% load i18n %}
+{% load ifsetting_tag %}
+
+{% block nav %}
+<ul class="nav">
+    <li id="tab_first">
+        <a href="#">First Link</a>
+    </li>
+    <li id="tab_second">
+        <a href="#">Second Link</a>
+    </li>
+    <li id="tab_third" class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            Some Dropdown Menu
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            <li><a href="#">Some Link</a></li>
+            <li><a href="#">Another Link</a></li>
+        </ul>
+    </li>
+</ul>
+{% endblock %}
+
+{% block head_title %}{% trans "Downloads" %}{% endblock %}
+
+{% block body %}
+<!--<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}django_tables2/themes/paleblue/css/screen.css" />-->
+    <h1>{% trans "Downloads" %}</h1>
+        
+{% if downloadlist_list %}
+
+    {% load render_table from django_tables2 %}
+	{% render_table table %}
+{% else %}
+    <p>This site has no pages.</p>
+{% endif %}
+
+{% endblock %}
