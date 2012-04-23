@@ -29,7 +29,7 @@ MANAGERS = ADMINS
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3", # Add "postgresql_psycopg2", "postgresql", "mysql", "sqlite3" or "oracle".
-        "NAME": "dev.db",                       # Or path to database file if using sqlite3.
+        "NAME": "../memberdesk/dev.db",                       # Or path to database file if using sqlite3.
         "USER": "",                             # Not used with sqlite3.
         "PASSWORD": "",                         # Not used with sqlite3.
         "HOST": "",                             # Set to empty string for localhost. Not used with sqlite3.
@@ -153,7 +153,7 @@ INSTALLED_APPS = [
     "pinax_theme_bootstrap",
     
     # external
-    "notification", # must be first
+    #"notification", # must be first
     "staticfiles",
     "compressor",
     "debug_toolbar",
