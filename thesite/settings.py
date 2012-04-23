@@ -16,6 +16,8 @@ SERVE_MEDIA = DEBUG
 # most users. See <URL> for more information
 COMPRESS = False
 
+APPEND_SLASH = False
+
 INTERNAL_IPS = [
     "127.0.0.1",
 ]

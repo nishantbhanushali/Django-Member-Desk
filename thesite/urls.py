@@ -12,6 +12,9 @@ handler500 = "pinax.views.server_error"
 
 
 urlpatterns = patterns("",
+	url(r'^(?P<url>.*)$', direct_to_template, {
+        "template": "homepage.html",
+    }, name="home"),
     url(r"^$", direct_to_template, {
         "template": "homepage.html",
     }, name="home"),
