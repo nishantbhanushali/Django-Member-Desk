@@ -19,6 +19,6 @@ class URL(models.Model):
     subdomain = models.CharField(max_length=255)
     
 class Level(models.Model):
-	website = models.ForeignKey(Website)
+    website = models.ForeignKey(Website)
     name = models.CharField(max_length=128)
     number = models.IntegerField()

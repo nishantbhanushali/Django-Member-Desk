@@ -28,6 +28,7 @@ class Product(models.Model):
     modified = models.DateTimeField()
     
 class Email(models.Model):
+    website = models.ForeignKey(Website)
     product = models.ForeignKey(Product)
     name = models.CharField(max_length=128)
     subject = models.CharField(max_length=128)
@@ -39,6 +40,7 @@ class Email(models.Model):
     modified = models.DateTimeField()    
 
 class AffiliateTool(models.Model):
+    website = models.ForeignKey(Website)
     name = models.CharField(max_length=128)
     html = models.TextField()
     type = models.CharField(max_length=128)

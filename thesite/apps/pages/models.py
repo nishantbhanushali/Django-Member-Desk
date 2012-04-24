@@ -2,6 +2,7 @@ from django.db import models
 from website.models import Website, Level
     
 class Layout(models.Model):
+    website = models.ForeignKey(Website)
     name = models.CharField(max_length=128)
     html = models.TextField()
     type = models.CharField(max_length=128)
@@ -9,8 +10,8 @@ class Layout(models.Model):
     modified = models.DateTimeField()
     
 class Page(models.Model):
-    name = models.CharField(max_length=128)
     website = models.ForeignKey(Website)
+    name = models.CharField(max_length=128)
     title = models.CharField(max_length=128)
     location = models.CharField(max_length=128)
     type = models.CharField(max_length=128)

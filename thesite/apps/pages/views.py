@@ -20,9 +20,9 @@ def public(request, url):
     html = html.replace('%%PAGETITLE%%', page.title)
     html = html.replace('%%PAGELINK%%', page.location)
     
-    #html = html.replace('%%AWEBERLISTNAME%%', page.website.aweber)
-    #html = html.replace('%%SUBDOMAIN%%',page.website.subdomain)
-	#html = html.replace('%%SITEDOMAIN%%',page.website.domain)
+    html = html.replace('%%AWEBERLISTNAME%%', page.website.aweber_list)
+    html = html.replace('%%SUBDOMAIN%%',page.website.subdomain)
+    html = html.replace('%%SITEDOMAIN%%',page.website.domain)
     html = html.replace('%%SITENAME%%',page.website.name)
     html = html.replace('%%REGISTRATION%%','/register.php')
     
