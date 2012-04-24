@@ -8,7 +8,7 @@ class Website(models.Model):
     jv_password = models.CharField(max_length=128)
 
 class URL(models.Model):
-    website = models.ForeignKey('Website')
+    website = models.ForeignKey(Website)
     domain = models.CharField(max_length=255)
     subdomain = models.CharField(max_length=255)
     
