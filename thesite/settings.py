@@ -188,6 +188,8 @@ ACCOUNT_EMAIL_VERIFICATION = False
 ACCOUNT_EMAIL_AUTHENTICATION = False
 ACCOUNT_UNIQUE_EMAIL = EMAIL_CONFIRMATION_UNIQUE_EMAIL = False
 
+AUTH_PROFILE_MODULE = 'profiles.UserProfile'
+
 AUTHENTICATION_BACKENDS = [
     "pinax.apps.account.auth_backends.AuthenticationBackend",
 ]
