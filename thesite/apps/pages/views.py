@@ -5,4 +5,7 @@ from django.http import HttpResponse
 
 def public(request, url):
     page = get_object_or_404(Page, location=url)
-    return HttpResponse(page.html)
+    
+    page.layout.html = page.layout.html.replace('%%BODY%%', page.html)
+    
+    return HttpResponse(page.layout.html)
