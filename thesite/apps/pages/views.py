@@ -6,7 +6,7 @@ from products.models import Product, AffiliateTool
 from downloads.models import Download
 from website.models import URL
 
-def public(request):
+def display(request):
     #page = get_object_or_404(Page, location=request.path_info)
     page = get_object_or_404(Page, location='test')
     

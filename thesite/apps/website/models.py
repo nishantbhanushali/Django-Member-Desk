@@ -1,4 +1,5 @@
 from django.db import models
+from manager import WebsiteSpecificManager
 
 class Website(models.Model):
     name = models.CharField(max_length=128)
@@ -18,12 +19,9 @@ class Website(models.Model):
 class URL(models.Model):
     website = models.ForeignKey(Website)
     full_url = models.CharField(max_length=255)
-    
-    def get_site(request):
-        host = request.get_host().lower()
-        return URL.objects.filter(full_url=host).website
-    
+        
 class Level(models.Model):
     website = models.ForeignKey(Website)
     name = models.CharField(max_length=128)
     number = models.IntegerField()
+    objects = WebsiteSpecificManager()
