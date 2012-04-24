@@ -4,13 +4,15 @@ from django.http import HttpResponse
 from pages.models import Page
 from products.models import Product, AffiliateTool
 from downloads.models import Download
+from website.models import URL
 
-def public(request, url):
-    page = get_object_or_404(Page, location=url)
+def public(request):
+    #page = get_object_or_404(Page, location=request.path_info)
+    page = get_object_or_404(Page, location='test')
     
     error = request.GET.get('e', '')
     message = request.GET.get('m', '')        
-    
+        
     html = page.layout.html.replace('%%BODY%%', page.html)
     
     html = html.replace('%%PAGEID%%', str(page.id))

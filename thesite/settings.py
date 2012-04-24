@@ -112,6 +112,7 @@ MIDDLEWARE_CLASSES = [
     "pinax.apps.account.middleware.LocaleMiddleware",
     "pinax.middleware.security.HideSensistiveFieldsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "get_site.GetSiteMiddleWare",
 ]
 
 ROOT_URLCONF = "thesite.urls"
