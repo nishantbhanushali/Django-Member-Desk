@@ -168,6 +168,7 @@ INSTALLED_APPS = [
     "about",
     "pages",
     "website",
+    "products",
 ]
 
 FIXTURE_DIRS = [

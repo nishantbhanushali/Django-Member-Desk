@@ -1,8 +1,9 @@
 from django.db import models
-from website.models import Level
+from website.models import Website, Level
 from pages.models import Page
 
 class Product(models.Model):
+    website = models.ForeignKey(Website)
     name = models.CharField(max_length=128)
     puid = models.CharField(max_length=128)
     clickbank_number = models.IntegerField()

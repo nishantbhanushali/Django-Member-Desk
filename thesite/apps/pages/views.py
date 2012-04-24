@@ -1,7 +1,8 @@
 from django.shortcuts import render_to_response
-from pages.models import Page
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
+from pages.models import Page
+from products.models import Product
 
 def public(request, url):
     page = get_object_or_404(Page, location=url)
@@ -50,6 +51,9 @@ def public(request, url):
     #html = html.replace('%%AFFCUSTOM4%%', affiliate.first_name)
     #html = html.replace('%%AFFCUSTOM5%%', affiliate.first_name)
     
-    
+    products = Product.objects.all()
+    for product in products:
+        html = html.replace('%%ORDERLINK' + str(product.id) + '%%', '/order.php?productid=' + str(product.id))
+        html = html.replace('%%PRICE' + str(product.id) + '%%', product.price)
 
     return HttpResponse(html)
