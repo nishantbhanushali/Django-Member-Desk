@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
@@ -6,9 +7,19 @@ from products.models import Product, AffiliateTool
 from downloads.models import Download
 from website.models import URL
 
-def display(request):
-    #page = get_object_or_404(Page, location=request.path_info)
+@login_required
+def members(request):
     page = get_object_or_404(Page, location='test')
+    html = page.layout.html.replace('%%BODY%%', page.html)
+    
+    return HttpResponse(html)
+
+def public(request, location=None):
+    if location is not None:
+        page = get_object_or_404(Page, location=location)
+    else:
+        #page = get_object_or_404(Page, location=request.path_info)
+        page = get_object_or_404(Page, location='test')
     
     error = request.GET.get('e', '')
     message = request.GET.get('m', '')        

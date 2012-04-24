@@ -11,7 +11,12 @@ from pinax.apps.account.openid_consumer import PinaxConsumer
 handler500 = "pinax.views.server_error"
 
 urlpatterns = patterns("",
-    url(r"^$", 'pages.views.display', name="home"),
+    url(r"^$", 'pages.views.public', name="home"),
+    url(r"^members$", 'pages.views.members'),
+    url(r"^members/$", 'pages.views.members'),
+    url(r"^login$", 'profiles.views.login'),    
+    url(r"^login/$", 'profiles.views.login'),    
+
     url(r"^admin/invite_user2/$", "pinax.apps.signup_codes.views.admin_invite_user", name="home"),
     url(r"^admin/invite_user/$", "pinax.apps.signup_codes.views.admin_invite_user", name="admin_invite_user"),
     url(r"^admin/", include(admin.site.urls)),

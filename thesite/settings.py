@@ -191,10 +191,11 @@ ACCOUNT_UNIQUE_EMAIL = EMAIL_CONFIRMATION_UNIQUE_EMAIL = False
 AUTH_PROFILE_MODULE = 'profiles.UserProfile'
 
 AUTHENTICATION_BACKENDS = [
-    "pinax.apps.account.auth_backends.AuthenticationBackend",
+    "thesite.profiles.backends.EmailOrUsernameModelBackend"
+    "django.contrib.auth.backends.ModelBackend",
 ]
 
-LOGIN_URL = "/account/login/" # @@@ any way this can be a url name?
+LOGIN_URL = "/login" # @@@ any way this can be a url name?
 LOGIN_REDIRECT_URLNAME = "what_next"
 LOGOUT_REDIRECT_URLNAME = "home"
 
