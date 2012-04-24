@@ -9,6 +9,7 @@ class Layout(models.Model):
     
 class Page(models.Model):
     name = models.CharField(max_length=128)
+    website = models.ForeignKey(Website)
     title = models.CharField(max_length=128)
     location = models.CharField(max_length=128)
     type = models.CharField(max_length=128)
