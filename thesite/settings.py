@@ -169,7 +169,8 @@ INSTALLED_APPS = [
     "pages",
     "website",
     "products",
-    "downloads"
+    "downloads",
+    "profiles",
 ]
 
 FIXTURE_DIRS = [
