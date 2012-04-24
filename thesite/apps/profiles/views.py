@@ -5,7 +5,7 @@ from pages.views import public
 
 def login(request):
     if request.method == 'GET':
-        public(request, "login")
+        return public(request, "login")
     elif request.method == 'POST':
         do_something_else()
 

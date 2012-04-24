@@ -113,6 +113,7 @@ MIDDLEWARE_CLASSES = [
     "pinax.middleware.security.HideSensistiveFieldsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
     "get_site.GetSiteMiddleWare",
+    "get_site.disableCSRF",
 ]
 
 ROOT_URLCONF = "thesite.urls"
@@ -191,7 +192,7 @@ ACCOUNT_UNIQUE_EMAIL = EMAIL_CONFIRMATION_UNIQUE_EMAIL = False
 AUTH_PROFILE_MODULE = 'profiles.UserProfile'
 
 AUTHENTICATION_BACKENDS = [
-    "thesite.profiles.backends.EmailOrUsernameModelBackend"
+    "thesite.backend.EmailOrUsernameModelBackend",
     "django.contrib.auth.backends.ModelBackend",
 ]
 

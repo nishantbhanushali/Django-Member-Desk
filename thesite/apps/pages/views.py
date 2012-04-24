@@ -1,3 +1,4 @@
+from django.core.context_processors import csrf
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render_to_response
 from django.shortcuts import get_object_or_404
