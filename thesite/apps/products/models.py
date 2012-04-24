@@ -1,6 +1,7 @@
 from django.db import models
 from website.models import Website, Level
 from pages.models import Page
+from manager import WebsiteSpecificManager
 
 class Product(models.Model):
     website = models.ForeignKey(Website)
@@ -27,6 +28,8 @@ class Product(models.Model):
     created = models.DateTimeField()
     modified = models.DateTimeField()
     
+    objects = WebsiteSpecificManager()
+    
 class Email(models.Model):
     website = models.ForeignKey(Website)
     product = models.ForeignKey(Product)
@@ -38,6 +41,8 @@ class Email(models.Model):
 
     created = models.DateTimeField()
     modified = models.DateTimeField()    
+    
+    objects = WebsiteSpecificManager()
 
 class AffiliateTool(models.Model):
     website = models.ForeignKey(Website)
@@ -48,3 +53,5 @@ class AffiliateTool(models.Model):
 
     created = models.DateTimeField()
     modified = models.DateTimeField()
+    
+    objects = WebsiteSpecificManager()
