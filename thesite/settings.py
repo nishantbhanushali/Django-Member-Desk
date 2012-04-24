@@ -167,6 +167,7 @@ INSTALLED_APPS = [
     # project
     "about",
     "pages",
+    "website",
 ]
 
 FIXTURE_DIRS = [
