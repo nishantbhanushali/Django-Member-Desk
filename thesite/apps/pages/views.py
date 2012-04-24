@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from pages.models import Page
 from products.models import Product, AffiliateTool
+from downloads.models import Download
 
 def public(request, url):
     page = get_object_or_404(Page, location=url)
@@ -73,6 +74,16 @@ def public(request, url):
         html = html.replace('%%ORDERLINK' + str(product.id) + '%%', '/order.php?productid=' + str(product.id))
         html = html.replace('%%PRICE' + str(product.id) + '%%', product.price)
         
-     
+    # put code in here to figure out which downloads i actually have access to
+    # put in "<div class=\"nodownload\"><p>This download is not yet availiable.</p></div>"
+    downloads_list = '<div id="downloadslist">'
+    downloads = Download.objects.all()
+    for download in downloads:
+    	download_content = '<div class="download"><h3 class="downloadname"><a href="/members/download.php?downloadid=' + str(download.id) + '">' + download.name + '</a></h3><p class="downloaddescription">' + download.description + '</p></div>';
+        html = html.replace('%%DOWNLOAD' + str(download.id) + '%%', '/order.php?productid=' + str(product.id))
+        downloads_list += download_content
+        
+    downloads_list += '</div>'
+    html = html.replace('%%DOWNLOADSLIST%%', downloads_list)
     
     return HttpResponse(html)

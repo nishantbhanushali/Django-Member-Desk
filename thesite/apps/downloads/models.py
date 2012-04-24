@@ -1,7 +1,4 @@
 from django.db import models
-import django_tables2 as tables
-from django_tables2 import SingleTableView
-from django_tables2.utils import A
 from website.models import Level
 
 class Download(models.Model):
@@ -14,9 +11,3 @@ class Download(models.Model):
 
     created = models.DateTimeField()
     modified = models.DateTimeField()    
-    
-class DownloadTable(tables.Table):
-    edit = tables.TemplateColumn('<a class="btn" href="/downloads/1">Edit</a>')
-    class Meta:
-        model = Download
-        attrs = {'class': 'table table-striped'}
