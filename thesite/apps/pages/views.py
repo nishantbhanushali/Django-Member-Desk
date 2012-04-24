@@ -86,4 +86,6 @@ def public(request, url):
     downloads_list += '</div>'
     html = html.replace('%%DOWNLOADSLIST%%', downloads_list)
     
+    # blog processing section goes here
+    
     return HttpResponse(html)
