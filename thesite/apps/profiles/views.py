@@ -3,12 +3,10 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 from pages.views import public
 
-def login(request):
+def login_view(request):
     if request.method == 'GET':
         return public(request, "login")
     elif request.method == 'POST':
-        do_something_else()
-
         email = request.POST['email']
         password = request.POST['password']
         user = authenticate(email=email, password=password)
