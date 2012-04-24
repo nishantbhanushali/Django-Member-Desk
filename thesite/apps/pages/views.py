@@ -2,7 +2,7 @@ from django.shortcuts import render_to_response
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
 from pages.models import Page
-from products.models import Product
+from products.models import Product, AffiliateTool
 
 def public(request, url):
     page = get_object_or_404(Page, location=url)
@@ -37,6 +37,23 @@ def public(request, url):
         #html = html.replace('%%CUSTOM3%%', request.user.custom3)
         #html = html.replace('%%CUSTOM4%%', request.user.custom4)
         #html = html.replace('%%CUSTOM5%%', request.user.custom5)
+
+        affiliate_tools_list = ''
+        affiliate_tools = AffiliateTool.objects.all()
+        for affiliate_tool in affiliate_tools:
+            affiliate_tool.html = affiliate_tool.html.replace('%%FNAME%%', request.user.first_name)
+            affiliate_tool.html = affiliate_tool.html.replace('%%LNAME%%', request.user.last_name)
+            #affiliate_tool.html = affiliate_tool.html.replace('%%AFFILIATELINK%%', 'aff-link')
+
+            if (affiliate_tool.type != 'html'):
+                affiliate_tool.html = '<div class="affiliatetools"><h3 class="toolname">' + affiliate_tool.name + '</h3><p class="toolcontent">' + affiliate_tool.html + '</p></div>'
+            else:
+                affiliate_tool.html = '<div class="affiliatetools"><h3 class="toolname">' + affiliate_tool.name + '</h3><textarea class="toolhtml">' + affiliate_tool.html + '</textarea><p class="toolcontent">' + affiliate_tool.html + '</p></div>'
+
+            html = html.replace('%%AFFTOOL' + str(affiliate_tool.id) + '%%', affiliate_tool.html)
+            affiliate_tools_list += affiliate_tool.html   
+        html = html.replace('%%AFFILIATETOOLLIST%%', affiliate_tools_list)        
+
     
     # get affiliate information in here
     # if i even want to do this section
@@ -55,5 +72,5 @@ def public(request, url):
     for product in products:
         html = html.replace('%%ORDERLINK' + str(product.id) + '%%', '/order.php?productid=' + str(product.id))
         html = html.replace('%%PRICE' + str(product.id) + '%%', product.price)
-
+    
     return HttpResponse(html)
