@@ -6,6 +6,17 @@ from django.http import HttpResponse
 def public(request, url):
     page = get_object_or_404(Page, location=url)
     
-    page.layout.html = page.layout.html.replace('%%BODY%%', page.html)
+    error = request.GET.get('e', '')
+    message = request.GET.get('m', '')        
     
-    return HttpResponse(page.layout.html)
+    html = page.layout.html.replace('%%BODY%%', page.html)
+    
+    html = html.replace('%%PAGEID%%', str(page.id))
+    html = html.replace('%%ERROR%%', error)
+    html = html.replace('%%MESSAGE%%', message)
+    html = html.replace('%%CSSSTYLES%%', "<link rel=\"stylesheet\" type=\"text/css\" href=\"/css/style.css\" />")
+    html = html.replace('%%PAGETITLE%%', page.title)
+    html = html.replace('%%PAGELINK%%', page.location)
+
+    
+    return HttpResponse(html)
