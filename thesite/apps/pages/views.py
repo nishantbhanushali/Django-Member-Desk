@@ -38,6 +38,18 @@ def public(request, url):
         #html = html.replace('%%CUSTOM5%%', request.user.custom5)
     
     # get affiliate information in here
-    html = html.replace()
+    # if i even want to do this section
+    #html = html.replace('%%AFFFNAME%%', affiliate.first_name)
+    #html = html.replace('%%AFFLNAME%%', affiliate.first_name)
+    #html = html.replace('%%AFFEMAIL%%', affiliate.first_name)
+    #html = html.replace('%%AFFIDNUM%%', affiliate.first_name)
+    #html = html.replace('%%AFFUSERNAME%%', affiliate.first_name)
+    #html = html.replace('%%AFFCUSTOM1%%', affiliate.first_name)
+    #html = html.replace('%%AFFCUSTOM2%%', affiliate.first_name)
+    #html = html.replace('%%AFFCUSTOM3%%', affiliate.first_name)
+    #html = html.replace('%%AFFCUSTOM4%%', affiliate.first_name)
+    #html = html.replace('%%AFFCUSTOM5%%', affiliate.first_name)
+    
+    
 
     return HttpResponse(html)
