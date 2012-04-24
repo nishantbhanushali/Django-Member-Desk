@@ -72,5 +72,7 @@ def public(request, url):
     for product in products:
         html = html.replace('%%ORDERLINK' + str(product.id) + '%%', '/order.php?productid=' + str(product.id))
         html = html.replace('%%PRICE' + str(product.id) + '%%', product.price)
+        
+     
     
     return HttpResponse(html)
