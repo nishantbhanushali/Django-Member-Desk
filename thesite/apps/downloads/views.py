@@ -9,7 +9,7 @@ def get_file(request, id):
     # have to check if http is in filename somewhere
     
     if download.type == 'public':
-        return redirect('http://s3.memberdesk.com/' + str(settings.website.id) + '/' + download.filename)
+        return redirect('http://s3.memberdesk.com/' + str(download.website.id) + '/' + download.filename)
     else:
 	    if not request.user.is_authenticated():
 	        return HttpResponse("You must be logged in to access this download.")
@@ -21,4 +21,4 @@ def get_file(request, id):
 	        elif download.level.number > request.user.level.number:
 	            return HttpResponse("Your level of membership cannot access this download.")
 	        else:
-	            return redirect('http://s3.memberdesk.com/' + str(settings.website.id) + '/' + download.filename)
+	            return redirect('http://s3.memberdesk.com/' + str(download.website.id) + '/' + download.filename)
