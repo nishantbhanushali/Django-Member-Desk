@@ -29,6 +29,7 @@ class Product(models.Model):
     modified = models.DateTimeField()
     
     objects = WebsiteSpecificManager()
+    all_objects = models.Manager()
     
 class Email(models.Model):
     website = models.ForeignKey(Website)
@@ -43,6 +44,7 @@ class Email(models.Model):
     modified = models.DateTimeField()    
     
     objects = WebsiteSpecificManager()
+    all_objects = models.Manager()
 
 class AffiliateTool(models.Model):
     website = models.ForeignKey(Website)
@@ -55,3 +57,4 @@ class AffiliateTool(models.Model):
     modified = models.DateTimeField()
     
     objects = WebsiteSpecificManager()
+    all_objects = models.Manager()

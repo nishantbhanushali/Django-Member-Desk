@@ -24,4 +24,6 @@ class Level(models.Model):
     website = models.ForeignKey(Website)
     name = models.CharField(max_length=128)
     number = models.IntegerField()
+
     objects = WebsiteSpecificManager()
+    all_objects = models.Manager()

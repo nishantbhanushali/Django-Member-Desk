@@ -9,7 +9,9 @@ class Layout(models.Model):
     type = models.CharField(max_length=128)
     created = models.DateTimeField()
     modified = models.DateTimeField()
+
     objects = WebsiteSpecificManager()
+    all_objects = models.Manager()
     
 class Page(models.Model):
     website = models.ForeignKey(Website)
@@ -29,4 +31,6 @@ class Page(models.Model):
     date_required = models.DateTimeField()
     created = models.DateTimeField()
     modified = models.DateTimeField()
+
     objects = WebsiteSpecificManager()
+    all_objects = models.Manager()

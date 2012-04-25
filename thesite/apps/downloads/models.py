@@ -15,3 +15,4 @@ class Download(models.Model):
     modified = models.DateTimeField()
     
     objects = WebsiteSpecificManager()
+    all_objects = models.Manager()
