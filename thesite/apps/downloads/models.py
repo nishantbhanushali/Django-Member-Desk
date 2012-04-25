@@ -17,3 +17,9 @@ class Download(models.Model):
     
     objects = WebsiteSpecificManager()
     all_objects = models.Manager()
+    
+    @property
+    def is_available(self):
+        if date.today() > self.date_required:
+            return True
+        return False
