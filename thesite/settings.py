@@ -103,6 +103,8 @@ TEMPLATE_LOADERS = [
 ]
 
 MIDDLEWARE_CLASSES = [
+    "get_site.GetSiteMiddleWare",
+    "get_site.disableCSRF",
     "django.middleware.common.CommonMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -112,8 +114,6 @@ MIDDLEWARE_CLASSES = [
     "pinax.apps.account.middleware.LocaleMiddleware",
     "pinax.middleware.security.HideSensistiveFieldsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
-    "get_site.GetSiteMiddleWare",
-    "get_site.disableCSRF",
 ]
 
 ROOT_URLCONF = "thesite.urls"
