@@ -94,7 +94,7 @@ def public(request, location=None):
     downloads = Download.objects.all()
     for download in downloads:
     	download_content = '<div class="download"><h3 class="downloadname"><a href="/members/download.php?downloadid=' + str(download.id) + '">' + download.name + '</a></h3><p class="downloaddescription">' + download.description + '</p></div>';
-        html = html.replace('%%DOWNLOAD' + str(download.id) + '%%', '/order.php?productid=' + str(product.id))
+        html = html.replace('%%DOWNLOAD' + str(download.id) + '%%', '/download/' + str(download.id))
         downloads_list += download_content
         
     downloads_list += '</div>'

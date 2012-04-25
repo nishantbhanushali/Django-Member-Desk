@@ -14,6 +14,7 @@ urlpatterns = patterns("",
     url(r"^$", 'pages.views.public', name="home"),
     url(r"^members/?$", 'pages.views.members'),
     url(r"^login/?$", 'profiles.views.login_view'),    
+    url(r"^register/?$", 'profiles.views.register_view'),    
     url(r"^download/(?P<id>\d+)$", 'downloads.views.get_file'),    
 
     url(r"^admin/invite_user2/$", "pinax.apps.signup_codes.views.admin_invite_user", name="home"),

@@ -1,16 +1,19 @@
 from django.db import models
-from website.models import Level, Website
+from website.models import Level, Website, URL
 from manager import WebsiteSpecificManager
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
+from django.conf import settings
+
+def get_site():
+    return settings.website
             
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    website = models.ForeignKey(Website)
+    website = models.ForeignKey(Website, default=get_site)
     
     affiliate_id = models.CharField(max_length=128)
     ip = models.CharField(max_length=128)
-    uuid = models.CharField(max_length=128)
     #referrer = models.ForeignKey(User)
     override = models.IntegerField()
     level = models.ForeignKey(Level)

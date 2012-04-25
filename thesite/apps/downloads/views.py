@@ -14,7 +14,9 @@ def get_file(request, id):
 	    if not request.user.is_authenticated():
 	        return HttpResponse("You must be logged in to access this download.")
 	    else:
-	        if request.user.days < download.days_required:
+	        if request.user.jv_partner:
+	            return redirect('http://s3.memberdesk.com/' + str(download.website.id) + '/' + download.filename)
+	        elif request.user.days < download.days_required:
 	            return HttpResponse("You haven't been a member long enough to access this file.")
 	        elif not download.is_available:
 	            return HttpResponse("This download is not yet available.")

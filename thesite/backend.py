@@ -19,6 +19,17 @@ class EmailOrUsernameModelBackend(object):
         except User.DoesNotExist:
             return None
 
+    def get_user_by_email(self, email):
+        try:
+            user = User.objects.get(email=email)
+            try:
+                profile = user.get_profile()
+                return user
+            except UserProfile.DoesNotExist:
+                return None
+        except User.DoesNotExist:
+            return None
+
     def get_user(self, user_id):
         try:
             user = User.objects.get(pk=user_id)
