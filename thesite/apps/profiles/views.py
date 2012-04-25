@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from django.http import HttpResponse
 from pages.views import public
+from profiles.models import get_user_by_email
 import uuid
 
 def login_view(request):
@@ -27,9 +28,9 @@ def register_view(request):
     elif request.method == 'POST':
         username = uuid.uuid4()
         data = request.POST.copy()
-        
-#        if get_user(data['email']) is not None:
-#            return HttpResponse("Email Address Already In Use")
+                
+        if get_user_by_email(data['email']) is not None:
+            return HttpResponse("Email Address Already In Use")
 
         if data['fname'] == '':
             return HttpResponse("Name is blank")

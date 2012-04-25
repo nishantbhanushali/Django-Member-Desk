@@ -5,12 +5,12 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.conf import settings
 
-def get_site():
+def current_site():
     return settings.website
             
 class UserProfile(models.Model):
     user = models.OneToOneField(User)
-    website = models.ForeignKey(Website, default=get_site)
+    website = models.ForeignKey(Website, default=current_site)
     
     affiliate_id = models.CharField(max_length=128)
     ip = models.CharField(max_length=128)
@@ -25,6 +25,21 @@ class UserProfile(models.Model):
     
     objects = WebsiteSpecificManager()
     all_objects = models.Manager()
+    
+def get_user_by_email(email):
+    try:
+        for user in User.objects.filter(email=email):
+            try:
+                profile = user.get_profile()
+                return user
+            except UserProfile.DoesNotExist:
+                continue
+            return None
+    except User.DoesNotExist:
+        return None
+    
+    except UserProfile.DoesNotExist:
+        return None
 
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
