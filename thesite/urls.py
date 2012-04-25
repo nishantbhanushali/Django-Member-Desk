@@ -12,10 +12,9 @@ handler500 = "pinax.views.server_error"
 
 urlpatterns = patterns("",
     url(r"^$", 'pages.views.public', name="home"),
-    url(r"^members$", 'pages.views.members'),
-    url(r"^members/$", 'pages.views.members'),
-    url(r"^login$", 'profiles.views.login_view'),    
-    url(r"^login/$", 'profiles.views.login_view'),    
+    url(r"^members/?$", 'pages.views.members'),
+    url(r"^login/?$", 'profiles.views.login_view'),    
+    url(r"^download/(?P<id>\d+)$", 'downloads.views.get_file'),    
 
     url(r"^admin/invite_user2/$", "pinax.apps.signup_codes.views.admin_invite_user", name="home"),
     url(r"^admin/invite_user/$", "pinax.apps.signup_codes.views.admin_invite_user", name="admin_invite_user"),

@@ -10,6 +10,7 @@ class Download(models.Model):
     level = models.ForeignKey(Level)
     days_required = models.IntegerField()
     date_required = models.DateTimeField()
+    type = models.CharField(max_length=128)
 
     created = models.DateTimeField()
     modified = models.DateTimeField()
